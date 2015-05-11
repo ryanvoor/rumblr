@@ -1,0 +1,11 @@
+%h1 Ryan's Blog
+= link_to 'post something', new_post_path
+- @posts.each do |post|
+	%div
+		%h3= post.title
+		%p= post.body
+		%span= link_to 'Show', post_path(post)
+		|
+		%span= link_to 'Edit', edit_post_path(post)
+		|
+		/ %span= link_to 'Delete', method: :delete, data: { confirm: "Are you sure?" }

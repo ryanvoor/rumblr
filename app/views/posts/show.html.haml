@@ -1,0 +1,10 @@
+!!!
+%h3 Title:
+%p= @post.title
+%h3 Body:
+%p= @post.body
+%span= link_to 'Edit this post', edit_post_path(@post)
+|
+%span= link_to 'Back to the blog', posts_path
+|
+/ this is where the delete link will go
