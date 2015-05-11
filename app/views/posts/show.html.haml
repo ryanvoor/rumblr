@@ -1,10 +1,25 @@
 !!!
-%h3 Title:
+%h2 Title:
 %p= @post.title
 %h3 Body:
 %p= @post.body
+
+/ I wanted to use a partial but rails said no
+/ = render @post.comments
+
+%h3 Comments
+-@post.comments.each do |comment|
+	%p.comment
+		%span.commenter= comment.commenter
+		says
+		%blockquote.comment_body= comment.body
+		%div.comment_delete_link= link_to 'Delete Comment', [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
+
+%h2 Add a comment:
+= render 'comments/form'
+
 %span= link_to 'Edit this post', edit_post_path(@post)
 |
 %span= link_to 'Back to the blog', posts_path
 |
-/ this is where the delete link will go
+%span= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }

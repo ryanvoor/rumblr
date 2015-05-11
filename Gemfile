@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 # Have generators use HAML instead of erb
 gem 'haml'
+gem 'haml-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

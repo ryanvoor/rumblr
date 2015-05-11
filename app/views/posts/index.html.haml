@@ -1,3 +1,4 @@
+!!!
 %h1 Ryan's Blog
 = link_to 'post something', new_post_path
 - @posts.each do |post|
@@ -8,4 +9,4 @@
 		|
 		%span= link_to 'Edit', edit_post_path(post)
 		|
-		/ %span= link_to 'Delete', method: :delete, data: { confirm: "Are you sure?" }
+		%span= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" }

@@ -1,0 +1,7 @@
+!!!
+%h2 Comments
+-@post.comments.each do |comment|
+	%p
+		%span.commenter= comment.commenter
+		says
+		%blockquote.comment= comment.body

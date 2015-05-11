@@ -1,3 +1,4 @@
+!!!
 %h1 Editing this Post
 
 = form_for :post, url: post_path(@post), method: :patch do |f|
@@ -6,15 +7,15 @@
 			%h2
 				= pluralize(@post.errors.count, "error")
 				prohibited this from being saved
-			%ul 
+			%ul
 				- @post.errors.full_messages.each do |msg|
 					%li= msg
-	
+
 	%p
 		= f.label :title
 		%br
 		= f.text_field :title
-	
+
 	%p
 		= f.label :body
 		%br
