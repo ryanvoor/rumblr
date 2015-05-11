@@ -1,12 +1,12 @@
 !!!
 %h1 Ryan's Blog
-= link_to 'post something', new_post_path
-- @posts.each do |post|
+%span.post_something_link= link_to 'Post Something', new_post_path
+- @posts.reverse.each do |post|
 	%div
-		%h3= post.title
-		%p= post.body
-		%span= link_to 'Show', post_path(post)
+		.post_title= link_to post.title, post_path(post)
+		.post_body= post.body
+		/ %span.bottom_of_page_links= link_to 'Show', post_path(post)
+		/ |
+		%span.bottom_of_page_links= link_to 'Edit', edit_post_path(post)
 		|
-		%span= link_to 'Edit', edit_post_path(post)
-		|
-		%span= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" }
+		%span.bottom_of_page_links= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" }
