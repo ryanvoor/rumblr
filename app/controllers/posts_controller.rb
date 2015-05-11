@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+	http_basic_authenticate_with name: "username",password: "password", except: [:index, :show]
+
 	def index
 		@posts = Post.all
 	end
@@ -31,7 +34,7 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 			redirect_to @post
 		else
-			render 'edit' 
+			render 'edit'
 		end
 	end
 
