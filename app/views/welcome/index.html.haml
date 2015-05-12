@@ -1,4 +1,29 @@
 !!!
-#homepage_title Welcome to Ryan's Blog
-%p#homepage_description Prepare yourself to read his thoughts and feelings... if you dare...
-%span#homepage_link= link_to 'BRING IT ON', controller: 'posts'
+.row
+	.col-md-4
+	%h1.col-md-4.welcome-element Welcome to Rumblr!
+	.col-md-4
+.row
+	.col-md-3
+	%h3.col-md-6.welcome-element Prepare yourself to read thoughts and feelings... if you dare...
+	.col-md-3
+
+/ ToDo add login here
+
+.row
+	.col-md-6 Don't have an account?
+	.col-md-6= link_to 'Sign-up', new_user_path
+
+/ %table.table.table-striped.table-bordered
+/ 	%tr
+/ 		%th first header
+/ 		%th second header
+/ 		%th third header
+/ 	%tr
+/ 		%td first data
+/ 		%td second data
+/ 		%td third data
+/ 	%tr
+/ 		%td fourth data
+/ 		%td fifth data
+/ 		%td sixth data

@@ -2,22 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post_title {
+.post-page-row {
+	border-radius: 20px;
+	background-color: #1DD1BC;
+}
+
+.post-title {
 	text-transform: uppercase;
-	margin-top: 30px;
-	padding-top: 30px;
-	margin-bottom: 15px;
-	border-top-style: solid;
-	border-width: 1px;
-	color: black;
-	font-size: 22px;
+	font-weight: bold;
 }
 
-.post_body {
-	margin-top:20px;
-	margin-bottom:20px;
+.post-body {
+	word-wrap: break-word;
 }
 
-.post_something_link {
-	font-size: 18px;
+.post-page-spacer {
+	height: 25px;
 }

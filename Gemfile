@@ -30,6 +30,9 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'haml-rails'
 
+# This is for adding bootstrap with sass from: https://github.com/twbs/bootstrap-sass/blob/master/README.md
+gem 'bootstrap-sass', '~> 3.3.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
