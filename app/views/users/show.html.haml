@@ -4,6 +4,7 @@
 	.user-logout-link= link_to 'Logout', logout_path, method: :delete
 	- if logged_in? && @user == current_user
 		.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
+	.user-link-to-users= link_to 'All users', users_path
 .row
 	%h2.col-md-12 These are your blogs
 - if @user.blogs.count > 0

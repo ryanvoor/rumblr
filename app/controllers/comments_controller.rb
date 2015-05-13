@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 		@blog = Blog.find(params[:blog_id])
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.create(comment_params)
+		@user = User.find(params[:user_id])
 		redirect_to user_blog_post_path(@user, @blog, @post)
 	end
 

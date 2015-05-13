@@ -1,8 +1,7 @@
 %h1 check out some of these users
 
 - @users.each do |user|
-	- if user != current_user
-		.row
-			.col-md-5
-			%h3.col-md-2.users-index-user-link= link_to user.username, user_path(user)
-			.col-md-5
+	.row
+		.col-md-5
+		%h3.col-md-2.users-index-user-link= link_to user.username, user_path(user)
+		.col-md-5

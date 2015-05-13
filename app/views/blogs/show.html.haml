@@ -5,7 +5,7 @@
 	%h1.col-md-2
 		- if logged_in? && @user == current_user
 			%div= link_to 'New post', new_user_blog_post_path(@user, @blog)
-			%div= link_to 'Back to all blogs', user_path(@user)
+		%div= link_to 'Back to all blogs', user_path(@user)
 - @posts.reverse.each do |post|
 	.row.post-page-row
 		.col-md-2
