@@ -1,11 +1,14 @@
 .row
 	%h1.col-md-12=@user.username
 	/ .user-page-delete-link= link_to 'Delete this account', method: :destroy
-
+.row
+	%h2.col-md-12 These are your blogs
 - if @user.blogs.count > 0
 	- @user.blogs.each do |blog|
-		%ul
-			%li= link_to blog.title, user_blog_path(@user.id, blog.id)
+		.row
+			.col-md-4
+			%h3.col-md-4.blog-link= link_to blog.title, user_blog_path(@user.id, blog.id)
+			.col-md-4
 - else
 	%h3 No blogs? Make one!
 = link_to 'Create a blog', new_user_blog_path(@user.id)

@@ -49,10 +49,12 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find(params[:user_id])
+		@blog = Blog.find(params[:blog_id])
 		@post = Post.find(params[:id])
 		@post.destroy
 
-		redirect_to posts_path
+		redirect_to user_blog_path(@user.id, @blog.id)
 	end
 
 	private

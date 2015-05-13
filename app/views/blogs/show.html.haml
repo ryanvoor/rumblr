@@ -2,7 +2,9 @@
 .row
 	%h1.col-md-2=@blog.title
 	.col-md-8
-	%h1.col-md-2= link_to 'New post', new_user_blog_post_path(@user.id, @blog.id)
+	%h1.col-md-2
+		%div= link_to 'New post', new_user_blog_post_path(@user.id, @blog.id)
+		%div= link_to 'Back to all my blogs', user_path(@user.id)
 - @posts.reverse.each do |post|
 	.row.post-page-row
 		.col-md-2
