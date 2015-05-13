@@ -2,7 +2,8 @@
 	%h1.col-md-12=@user.username
 	/ .user-page-delete-link= link_to 'Delete this account', method: :destroy
 	.user-logout-link= link_to 'Logout', logout_path, method: :delete
-	.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
+	- if logged_in? && @user == current_user
+		.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
 .row
 	%h2.col-md-12 These are your blogs
 - if @user.blogs.count > 0
@@ -10,7 +11,8 @@
 		.row.user-page-row
 			.col-md-4
 			%h3.col-md-4.blog-link= link_to blog.title, user_blog_path(@user, blog)
-			%h4.col-md-2= link_to 'Delete this blog', user_blog_path(@user, blog), method: :delete, data: { confirm: "Are you sure? " }
+			- if logged_in? && @user == current_user
+				%h4.col-md-2= link_to 'Delete this blog', user_blog_path(@user, blog), method: :delete, data: { confirm: "Are you sure? " }
 			.col-md-2
 - else
 	%h3 No blogs? Make one!

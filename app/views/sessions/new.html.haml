@@ -10,6 +10,7 @@
 
 - if logged_in?
 	%h4= link_to "Go to #{current_user.username}'s blogs", user_path(current_user)
+	= link_to "Logout", logout_path, method: :delete
 - else
 	=form_for :session, url: login_path do |f|
 		%p
