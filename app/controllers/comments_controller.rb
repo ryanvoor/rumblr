@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
 
 	private
 		def comment_params
-			params.require(:comment).permit(:commenter, :body)
+			@user = current_user
+			params.require(:comment).permit(:body).merge!(commenter: @user.username)
 		end
 end
