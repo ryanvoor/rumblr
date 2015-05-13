@@ -1,0 +1,43 @@
+!!!
+.row
+	.col-md-4
+	%h1.col-md-4.welcome-element Welcome to Rumblr!
+	.col-md-4
+.row
+	.col-md-3
+	%h3.col-md-6.welcome-element Prepare yourself to read thoughts and feelings... if you dare...
+	.col-md-3
+
+- if logged_in?
+	%h4= link_to "Go to #{current_user.username}'s blogs", user_path(current_user)
+- else
+	=form_for :session, url: login_path do |f|
+		%p
+			=f.label :username
+			%br
+			=f.text_field :username
+
+		%p
+			=f.label :password
+			%br
+			=f.password_field :password
+
+		%p
+			=f.submit 'Login'
+- if !logged_in?
+	.row
+		.col-md-12= link_to "Don't have an account?", new_user_path
+
+/ %table.table.table-striped.table-bordered
+/ 	%tr
+/ 		%th first header
+/ 		%th second header
+/ 		%th third header
+/ 	%tr
+/ 		%td first data
+/ 		%td second data
+/ 		%td third data
+/ 	%tr
+/ 		%td fourth data
+/ 		%td fifth data
+/ 		%td sixth data
