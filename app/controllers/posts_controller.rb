@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 		@post = @blog.posts.create(post_params)
 		if @post.save
 			# redirect_to @post
-			redirect_to user_blog_post_path(@user.id, @blog.id, @post.id)
+			redirect_to user_blog_post_path(@user, @blog, @post)
 		else
 			render 'new'
 		end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
 		# if the update method fails b/c of validations then it returns false and doesn't update
 		if @post.update(post_params)
-			redirect_to user_blog_post_path(@user.id, @blog.id, @post.id)
+			redirect_to user_blog_post_path(@user, @blog, @post)
 		else
 			render 'edit'
 		end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 
-		redirect_to user_blog_path(@user.id, @blog.id)
+		redirect_to user_blog_path(@user, @blog)
 	end
 
 	private

@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@blog = @user.blogs.create(blog_params)
 		if @blog.save
-			redirect_to user_blog_path(@user.id, @blog.id)
+			redirect_to user_blog_path(@user, @blog)
 		else
 			render 'new'
 		end
@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
 		@blog = Blog.find(params[:id])
 		@blog.destroy
 
-		redirect_to user_path(@user.id)
+		redirect_to user_path(@user)
 	end
 
 	private

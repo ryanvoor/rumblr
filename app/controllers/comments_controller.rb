@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 		@blog = Blog.find(params[:blog_id])
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.create(comment_params)
-		redirect_to user_blog_post_path(@user.id, @blog.id, @post)
+		redirect_to user_blog_post_path(@user, @blog, @post)
 	end
 
 	def destroy
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 		@comment.destroy
-		redirect_to user_blog_post_path(@user.id, @blog.id, @post)
+		redirect_to user_blog_post_path(@user, @blog, @post)
 	end
 
 	private
