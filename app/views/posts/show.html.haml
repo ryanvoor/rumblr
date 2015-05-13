@@ -13,13 +13,25 @@
 		%span.commenter= comment.commenter
 		says
 		%blockquote.comment_body= comment.body
-		%div.comment_delete_link= link_to 'Delete Comment', [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
+		%div.comment_delete_link= link_to 'Delete Comment', [comment.post.blog.user, comment.post.blog, comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
 
 %h2 Add a comment:
-= render 'comments/form'
+/ = render 'comments/form'
+= form_for :comment, url: user_blog_post_comments_path(@user.id, @blog.id, @post.id) do |f|
+	/ @post.comments.build
+	%p
+		= f.label :commenter
+		%br
+		= f.text_field :commenter
+	%p
+		= f.label :body
+		%br
+		= f.text_area :body
+	%p
+		=f.submit
 
-%span= link_to 'Edit this post', edit_post_path(@post)
+%span= link_to 'Edit this post', edit_user_blog_post_path(@user.id, @blog.id, @post)
 |
-%span= link_to 'Back to the blog', posts_path
+%span= link_to 'Back to the blog', user_blog_path(@user.id, @blog.id)
 |
-%span= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
+%span= link_to 'Delete', user_blog_post_path(@user.id, @blog.id, @post), method: :delete, data: { confirm: "Are you sure?" }

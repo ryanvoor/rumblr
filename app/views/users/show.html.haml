@@ -5,7 +5,7 @@
 - if @user.blogs.count > 0
 	- @user.blogs.each do |blog|
 		%ul
-			%li= link_to blog.title, user_blog
+			%li= link_to blog.title, user_blog_path(@user.id, blog.id)
 - else
 	%h3 No blogs? Make one!
-= link_to 'Create a blog', new_user_blog_path
+= link_to 'Create a blog', new_user_blog_path(@user.id)

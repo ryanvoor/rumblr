@@ -1,5 +1,6 @@
 !!!
-= form_for([@post, @post.comments.build]) do |f|
+= form_for([@post, user_blog_post_comments(@user.id, @blog.id, @post.id)]) do |f|
+	/ @post.comments.build
 	%p
 		= f.label :commenter
 		%br

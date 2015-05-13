@@ -1,7 +1,7 @@
 !!!
 %h1 Editing this Post
 
-= form_for :post, url: post_path(@post), method: :patch do |f|
+= form_for :post, url: user_blog_post_path(@user.id, @blog.id, @post.id), method: :patch do |f|
 	- if @post.errors.any?
 		#error_explanation
 			%h2
@@ -24,4 +24,4 @@
 	%p
 		= f.submit
 
-= link_to 'Back to the blog', posts_path
+= link_to 'Back to the blog', user_blog_posts_path(@user.id, @blog.id, @post.id)

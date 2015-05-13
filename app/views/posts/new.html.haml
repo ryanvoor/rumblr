@@ -2,7 +2,7 @@
 %h1 New Post
 
 / = render 'form'
-= form_for :post, url: posts_path do |f|
+= form_for :post, url: user_blog_posts_path do |f|
 	- if @post.errors.any?
 		#error_explanation
 			%h2
@@ -25,4 +25,4 @@
 	%p
 		= f.submit
 
-= link_to 'nevermind', posts_path
+= link_to 'nevermind', user_blog_posts_path
