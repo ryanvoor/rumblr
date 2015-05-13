@@ -1,6 +1,7 @@
 .row
 	%h1.col-md-12=@user.username
 	/ .user-page-delete-link= link_to 'Delete this account', method: :destroy
+	.user-logout-link= link_to 'Logout', logout_path, method: :delete
 	.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
 .row
 	%h2.col-md-12 These are your blogs

@@ -1,3 +1,6 @@
+/ this file should be irrelevant now that i've added
+/ sessions and changed the root in routes.rb to "sessions#new"
+
 !!!
 .row
 	.col-md-4
@@ -8,7 +11,23 @@
 	%h3.col-md-6.welcome-element Prepare yourself to read thoughts and feelings... if you dare...
 	.col-md-3
 
-/ ToDo add login here
+/ I'm not sure if this is correct or if it's even doing anything
+/ - flash.each do |name, msg|
+/ 	.name=msg
+
+=form_for :session, url: login_path do |f|
+	%p
+		=f.label :username
+		%br
+		=f.text_field :username
+
+	%p
+		=f.label :password
+		%br
+		=f.password_field :password
+
+	%p
+		=f.submit 'Login'
 
 .row
 	.col-md-12= link_to "Don't have an account?", new_user_path
