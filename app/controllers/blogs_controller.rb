@@ -23,6 +23,14 @@ class BlogsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@user = User.find(params[:user_id])
+		@blog = Blog.find(params[:id])
+		@blog.destroy
+
+		redirect_to user_path(@user.id)
+	end
+
 	private
 	 def blog_params
 	 	params.require(:blog).permit(:title)

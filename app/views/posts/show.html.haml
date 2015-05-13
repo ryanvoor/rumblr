@@ -17,7 +17,7 @@
 
 %h2 Add a comment:
 / = render 'comments/form'
-= form_for :comment, url: user_blog_post_comments_path(@user.id, @blog.id, @post.id) do |f|
+= form_for :comment, url: user_blog_post_comments_path(@user, @blog, @post) do |f|
 	/ @post.comments.build
 	%p
 		= f.label :commenter
@@ -30,8 +30,8 @@
 	%p
 		=f.submit
 
-%span= link_to 'Edit this post', edit_user_blog_post_path(@user.id, @blog.id, @post)
+%span= link_to 'Edit this post', edit_user_blog_post_path(@user, @blog, @post)
 |
-%span= link_to 'Back to the blog', user_blog_path(@user.id, @blog.id)
+%span= link_to 'Back to the blog', user_blog_path(@user, @blog)
 |
-%span= link_to 'Delete', user_blog_post_path(@user.id, @blog.id, @post), method: :delete, data: { confirm: "Are you sure?" }
+%span= link_to 'Delete', user_blog_post_path(@user, @blog, @post), method: :delete, data: { confirm: "Are you sure?" }

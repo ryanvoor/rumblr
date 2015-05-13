@@ -2,7 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.hidden-text-field {
-	// display: none;
-	visibility: hidden;
+.user-page-row {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.user-create-blog-link {
+	margin-bottom: 15px;
+}
+
+// this is for the links to blogs from the user's homepage
+.blog-link {
+	border-radius: 20px;
+	background-color: #1DD1BC;
+}
+
+.user-delete-link {
+	float: right;
 }
