@@ -7,27 +7,27 @@
 	.col-md-3
 	%h3.col-md-6.welcome-element Prepare yourself to read thoughts and feelings... if you dare...
 	.col-md-3
+/ Since logging in never works the program always thinks that logged_in? returns false so if you call anything on current_user you will get a no method error for calling something on a nil thing
+/ - if logged_in?
+/ 	%h4= link_to "Go to #{current_user.read_attribute(:username)}'s blogs", user_path(current_user)
+/ 	= link_to "Logout", logout_path, method: :delete
+/ - else
+=form_for :session, url: login_path do |f|
+	%p
+		=f.label :username
+		%br
+		=f.text_field :username
 
-- if logged_in?
-	%h4= link_to "Go to #{current_user.username}'s blogs", user_path(current_user)
-	= link_to "Logout", logout_path, method: :delete
-- else
-	=form_for :session, url: login_path do |f|
-		%p
-			=f.label :username
-			%br
-			=f.text_field :username
+	%p
+		=f.label :password
+		%br
+		=f.password_field :password
 
-		%p
-			=f.label :password
-			%br
-			=f.password_field :password
-
-		%p
-			=f.submit 'Login'
-- if !logged_in?
-	.row
-		.col-md-12= link_to "Don't have an account?", new_user_path
+	%p
+		=f.submit 'Login'
+/ - if !logged_in?
+.row
+	.col-md-12= link_to "Don't have an account?", new_user_path
 
 / / %table.table.table-striped.table-bordered
 / 	%tr

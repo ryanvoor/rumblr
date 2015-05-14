@@ -3,8 +3,8 @@
 	%h1.col-md-2=@blog.title
 	.col-md-8
 	%h1.col-md-2
-		- if logged_in? && @user == current_user
-			%div= link_to 'New post', new_user_blog_post_path(@user, @blog)
+		/ # - if logged_in? && @user == current_user
+		%div= link_to 'New post', new_user_blog_post_path(@user, @blog)
 		%div= link_to 'Back to all blogs', user_path(@user)
 - @posts.reverse.each do |post|
 	.row.post-page-row
@@ -13,10 +13,10 @@
 		.col-md-4.post-body= post.body
 		/		%span.bottom_of_page_links= link_to 'Show', post_path(post)
 		/		|
-		- if logged_in? && @user == current_user
-			.col-md-1= link_to 'Edit', edit_user_blog_post_path(@user, @blog, post)
-			.col-md-1= link_to 'Delete', user_blog_post_path(@user, @blog, post), method: :delete, data: { confirm: "Are you sure?" }
-		- else
-			.col-me-2
+		/ - if logged_in? && @user == current_user
+		.col-md-1= link_to 'Edit', edit_user_blog_post_path(@user, @blog, post)
+		.col-md-1= link_to 'Delete', user_blog_post_path(@user, @blog, post), method: :delete, data: { confirm: "Are you sure?" }
+		/ - else
+		.col-me-2
 		.col-md-2
 	.row.post-page-spacer

@@ -6,7 +6,14 @@ module SessionsHelper
 
 	def current_user
 		# @current_user ||= User.find_by(id: session[:user_id])
-		@current_user ||= User.where(session[:user_id])
+		# @current_user ||= User.where(id: session[:user_id]).first
+		@users = User.all
+		@users.each do |user|
+			if user.id == session[:user_id]
+				@current_user = user
+			end
+		end
+		@current_user
 	end
 
 	def logged_in?
@@ -17,5 +24,6 @@ module SessionsHelper
 	def log_out
 		session.delete(:user_id)
 		@current_user = nil
+		puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
 	end
 end

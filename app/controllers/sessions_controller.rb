@@ -3,10 +3,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	@user = User.find_by(username: params[:session][:username])
-  	if (@user && @user.password == params[:session][:password])
+    # no idea if this is going to work
+    # @user = User.find_by(username: params[:session][:username])
+  	# @user = User.find_by(params[:session][:username])
+    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{User.find(params[:session][:username]).username}"
+  	@users = User.all
+    @users.each do |user|
+      if user.username == params[:session][:username]
+        @user = user
+      end
+    end
+    if (@user && @user.password == params[:session][:password])
   		log_in @user
-  		redirect_to user_path(@user)
+      redirect_to user_path(@user)
   	else
   		# This isn't completely correct according to the tutorial
   		# flash[:danger] = 'Invalid username/password combination'

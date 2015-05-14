@@ -13,23 +13,23 @@
 		%span.commenter= comment.commenter
 		says
 		.comment_body= comment.body
-		- if logged_in? && current_user.username == comment.commenter
-			%div.comment_delete_link= link_to 'Delete Comment', [comment.post.blog.user, comment.post.blog, comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
+		/ # - if logged_in? && current_user.username == comment.commenter
+		%div.comment_delete_link= link_to 'Delete Comment', [comment.post.blog.user, comment.post.blog, comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
 
-- if logged_in?
-	%h2 Add a comment:
-	/ = render 'comments/form'
-	= form_for :comment, url: user_blog_post_comments_path(@user, @blog, @post) do |f|
-		/ @post.comments.build
-		%p
-			= f.label :body
-			%br
-			= f.text_area :body
-		%p
-			=f.submit
+/ # - if logged_in?
+%h2 Add a comment:
+/ = render 'comments/form'
+= form_for :comment, url: user_blog_post_comments_path(@user, @blog, @post) do |f|
+	/ @post.comments.build
+	%p
+		= f.label :body
+		%br
+		= f.text_area :body
+	%p
+		=f.submit
 
-- else
-	%h3= link_to '*you must be logged in to comment*', login_path
+/ - else
+%h3= link_to '*you must be logged in to comment*', login_path
 
 - if logged_in? && @user == current_user
 	%span= link_to 'Edit this post', edit_user_blog_post_path(@user, @blog, @post)
