@@ -35,5 +35,6 @@
 	%span= link_to 'Edit this post', edit_user_blog_post_path(@user, @blog, @post)
 	|
 %span= link_to 'Back to the blog', user_blog_path(@user, @blog)
-|
-%span= link_to 'Delete', user_blog_post_path(@user, @blog, @post), method: :delete, data: { confirm: "Are you sure?" }
+- if logged_in? && @user == current_user
+	|
+	%span= link_to 'Delete', user_blog_post_path(@user, @blog, @post), method: :delete, data: { confirm: "Are you sure?" }

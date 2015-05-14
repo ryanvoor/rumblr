@@ -17,4 +17,5 @@
 			.col-md-2
 - else
 	%h3 No blogs? Make one!
-.user-create-blog-link= link_to 'Create a blog', new_user_blog_path(@user)
+- if logged_in? && @user == current_user
+	.user-create-blog-link= link_to 'Create a blog', new_user_blog_path(@user)
