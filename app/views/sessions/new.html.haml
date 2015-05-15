@@ -15,3 +15,8 @@
 		= f.submit "Log in"
 
 = link_to "Don't have an account?", new_user_path
+.row
+	/ %button{onclick="changeBackgroundColorToGreen(this.getElementById('container'))"} "Click to change background to green"
+	/ # = link_to "Change background color to green", "", :onclick => "changeBackgroundColorToGreen(document.getElementById('container'))"
+	/ # = link_to "Change background color to green", "", :onclick => "document.getElementById('container').style.background = 'green'"
+	%button{onclick: "document.getElementById('container').style.background = 'green'"} Click to change background to green
