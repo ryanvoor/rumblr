@@ -9,7 +9,11 @@ module SessionsHelper
 	end
 
 	def current_user
-		User.find_by(id: session[:user_id])
+		if User.where(id: session[:user_id]).exists?
+			User.find_by(id: session[:user_id])
+		else
+			nil
+		end
 	end
 
 	def logged_in?

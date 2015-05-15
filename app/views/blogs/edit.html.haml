@@ -1,12 +1,12 @@
-.row
-	%h1.col-md-12 Change this blog's title
+!!!
+%h1 Change this blog's title
 
 = form_for :blog, url: user_blog_path(@user, @blog), method: :patch do |f|
 	- if @blog.errors.any?
 		#error_explanation
 			%h2
 				= pluralize(@blog.errors.count, "error")
-					prohibited this from being saved
+				prohibited this from being saved
 			%ul
 				- @blog.errors.full_messages.each do |msg|
 					%li= msg

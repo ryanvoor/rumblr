@@ -10,5 +10,9 @@
 			if logged_in? {
 				document.getElementById('container').style.background = current_user.color;
 			}
-		#container{style: "background-color: #{current_user.color};"}
-			= yield
+		- if logged_in?
+			#container{style: "background-color: #{current_user.color};"}
+				= yield
+		- else
+			#container
+				= yield

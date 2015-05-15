@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    reset_session
+   reset_session
   end
 
   def create
