@@ -6,7 +6,7 @@
 		.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
 	.user-link-to-users= link_to 'All users', users_path
 .row
-	%h2.col-md-12 These are your blogs
+	%h2.col-md-12 Blogs:
 - if @user.blogs.count > 0
 	- @user.blogs.each do |blog|
 		.row.user-page-row
@@ -14,7 +14,7 @@
 			%h3.col-md-4.blog-link= link_to blog.title, user_blog_path(@user, blog)
 			- if logged_in? && @user == current_user
 				%h4.col-md-2= link_to 'Delete this blog', user_blog_path(@user, blog), method: :delete, data: { confirm: "Are you sure? " }
-			.col-md-2
+				%h4.col-md-2= link_to "Change this blog's title", edit_user_blog_path(@user, blog)
 - else
 	%h3 No blogs? Make one!
 - if logged_in? && @user == current_user

@@ -1,21 +1,25 @@
 class SessionsController < ApplicationController
   def new
+    reset_session
   end
 
   def create
-  	@user = User.find_by(username: params[:session][:username])
-  	if (@user && @user.password == params[:session][:password])
+    if User.where(username: params[:session][:username]).exists?
+      @user = User.find_by(username: params[:session][:username])
+    else
+      @user = nil
+    end
+
+  	if @user && @user.password == params[:session][:password]
   		log_in @user
   		redirect_to user_path(@user)
   	else
-  		# This isn't completely correct according to the tutorial
-  		# flash[:danger] = 'Invalid username/password combination'
+  		# the tutorial wanted me to create an error message here
   		render 'new'
   	end
   end
 
   def destroy
-  	# should have other stuff here
   	log_out
   	redirect_to root_path
   end

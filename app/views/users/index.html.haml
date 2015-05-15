@@ -1,5 +1,5 @@
 %h1 check out some of these users
-
+.user-logout-link= link_to 'Logout', logout_path, method: :delete
 - @users.each do |user|
 	.row
 		.col-md-5

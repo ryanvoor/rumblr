@@ -33,6 +33,10 @@ gem 'haml-rails'
 # This is for adding bootstrap with sass from: https://github.com/twbs/bootstrap-sass/blob/master/README.md
 gem 'bootstrap-sass', '~> 3.3.4'
 
+# This is for adding mongoid according to: http://railscasts.com/episodes/238-mongoid
+gem 'mongoid'
+gem 'bson_ext'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

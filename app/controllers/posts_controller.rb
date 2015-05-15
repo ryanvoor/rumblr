@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@blog = Blog.find(params[:blog_id])
-		@post = Post.find(params[:id])
+		@post = @blog.posts.find(params[:id])
 	end
 
 	def new
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 	def edit
 		@user = User.find(params[:user_id])
 		@blog = Blog.find(params[:blog_id])
-		@post = Post.find(params[:id])
+		@post = @blog.posts.find(params[:id])
 	end
 
 	def create
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 	def update
 		@user = User.find(params[:user_id])
 		@blog = Blog.find(params[:blog_id])
-		@post = Post.find(params[:id])
+		@post = @blog.posts.find(params[:id])
 
 		# if the update method fails b/c of validations then it returns false and doesn't update
 		if @post.update(post_params)
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 	def destroy
 		@user = User.find(params[:user_id])
 		@blog = Blog.find(params[:blog_id])
-		@post = Post.find(params[:id])
+		@post = @blog.posts.find(params[:id])
 		@post.destroy
 
 		redirect_to user_blog_path(@user, @blog)

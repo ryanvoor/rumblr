@@ -13,7 +13,7 @@
 		%span.commenter= comment.commenter
 		says
 		.comment_body= comment.body
-		- if logged_in? && current_user.username == comment.commenter
+		- if logged_in? && (current_user.username == comment.commenter || current_user.username == @user.username)
 			%div.comment_delete_link= link_to 'Delete Comment', [comment.post.blog.user, comment.post.blog, comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
 
 - if logged_in?

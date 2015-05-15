@@ -14,6 +14,11 @@ class BlogsController < ApplicationController
 		@blog = Blog.new
 	end
 
+	def edit
+		@user = User.find(params[:user_id])
+		@blog = @user.blogs.find(params[:id])
+	end
+
 	def create
 		@user = User.find(params[:user_id])
 		@blog = @user.blogs.create(blog_params)
@@ -22,6 +27,17 @@ class BlogsController < ApplicationController
 
 		else
 			render 'new'
+		end
+	end
+
+	def update
+		@user = User.find(params[:user_id])
+		@blog = @user.blogs.find(params[:id])
+
+		if @blog.update(blog_params)
+			redirect_to user_blog_path(@user, @blog)
+		else
+			render 'edit'
 		end
 	end
 

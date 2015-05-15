@@ -11,12 +11,10 @@
 		.col-md-2
 		.col-md-2.post-title= link_to post.title, user_blog_post_path(@user, @blog, post)
 		.col-md-4.post-body= post.body
-		/		%span.bottom_of_page_links= link_to 'Show', post_path(post)
-		/		|
 		- if logged_in? && @user == current_user
 			.col-md-1= link_to 'Edit', edit_user_blog_post_path(@user, @blog, post)
 			.col-md-1= link_to 'Delete', user_blog_post_path(@user, @blog, post), method: :delete, data: { confirm: "Are you sure?" }
 		- else
-			.col-me-2
+			.col-md-2
 		.col-md-2
 	.row.post-page-spacer
