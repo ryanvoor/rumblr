@@ -1,44 +1,17 @@
-!!!
-.row
-	.col-md-4
-	%h1.col-md-4.welcome-element Welcome to Rumblr!
-	.col-md-4
-.row
-	.col-md-3
-	%h3.col-md-6.welcome-element Prepare yourself to read thoughts and feelings... if you dare...
-	.col-md-3
-/ Since logging in never works the program always thinks that logged_in? returns false so if you call anything on current_user you will get a no method error for calling something on a nil thing
-/ - if logged_in?
-/ 	%h4= link_to "Go to #{current_user.read_attribute(:username)}'s blogs", user_path(current_user)
-/ 	= link_to "Logout", logout_path, method: :delete
-/ - else
-=form_for :session, url: login_path do |f|
+%h1 Rumblr
+
+=form_for(:session, url: login_path) do |f|
 	%p
-		=f.label :username
+		= f.label :username
 		%br
-		=f.text_field :username
+		= f.text_field :username
 
 	%p
-		=f.label :password
+		= f.label :password
 		%br
-		=f.password_field :password
+		= f.password_field :password
 
 	%p
-		=f.submit 'Login'
-/ - if !logged_in?
-.row
-	.col-md-12= link_to "Don't have an account?", new_user_path
+		= f.submit "Log in"
 
-/ / %table.table.table-striped.table-bordered
-/ 	%tr
-/ 		%th first header
-/ 		%th second header
-/ 		%th third header
-/ 	%tr
-/ 		%td first data
-/ 		%td second data
-/ 		%td third data
-/ 	%tr
-/ 		%td fourth data
-/ 		%td fifth data
-/ 		%td sixth data
+= link_to "Don't have an account?", new_user_path
