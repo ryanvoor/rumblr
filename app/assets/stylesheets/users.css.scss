@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-page-header {
+	margin-left: 20.2%;
+}
+
 .user-page-row {
 	margin-top: 25px;
 	margin-bottom: 25px;
@@ -17,17 +21,17 @@
 	background-color: #1DD1BC;
 }
 
-.user-edit-link {
-	float: right;
-}
+// .user-edit-link {
+// 	float: right;
+// }
 
-.user-delete-link {
-	float: right;
-}
+// .user-delete-link {
+// 	float: right;
+// }
 
-.user-logout-link {
-	float: right;
-}
+// .user-logout-link {
+// 	float: right;
+// }
 
 .users-index-user-link {
 	margin-bottom: 25px;
@@ -35,6 +39,6 @@
 	background-color: #1DD1BC;
 }
 
-.user-link-to-users {
-	float: right;
-}
+// .user-link-to-users {
+// 	float: right;
+// }
