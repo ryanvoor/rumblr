@@ -23,8 +23,8 @@ class CommentsController < ApplicationController
 	private
 		def comment_params
 			# yes I know that @user shouldn't just be the user of the post but I had no choice because current_user insists on not working
-			# @user = current_user
-			@user = User.find(params[:user_id])
+			@user = current_user
+			# @user = User.find(params[:user_id])
 			params.require(:comment).permit(:body).merge!(commenter: @user.username)
 		end
 end

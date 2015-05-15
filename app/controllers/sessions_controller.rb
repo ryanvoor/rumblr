@@ -1,21 +1,15 @@
 class SessionsController < ApplicationController
   def new
+    reset_session
   end
 
   def create
-  	# render 'new'
-  	# b/c user validates uniqueness for the username field this should always work
-  	# @user = User.where(params[:session][:username]).first
+    if User.where(username: params[:session][:username]).exists?
+      @user = User.find_by(username: params[:session][:username])
+    else
+      @user = nil
+    end
 
-  	# this is what i would think based on my experience with ActiveRecord
-  	@user = User.find_by(params[:session][:username])
-
-  	# @user = User.find(params[:session][:user_id])
-
-  	# for this attempt it says that 'db' is not a recognized variable
-  	# @user = db.User.all.findOne(username: params[:session][:username])
-  	# most recent attempt based on something I saw near the end of the 194 railscasts videos
-  	# @user = User.all(:username => params[:session][:username])
   	if @user && @user.password == params[:session][:password]
   		log_in @user
   		redirect_to user_path(@user)

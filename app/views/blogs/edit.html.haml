@@ -1,7 +1,7 @@
-!!!
-%h1 Editing this Post
+.row
+	%h1.col-md-12 Change this blog's title
 
-= form_for :post, url: user_blog_post_path(@user, @blog, @post), method: :patch do |f|
+= form_for :blog, url: user_blog_path(@user, @blog), method: :patch do |f|
 	- if @post.errors.any?
 		#error_explanation
 			%h2
@@ -17,11 +17,4 @@
 		= f.text_field :title
 
 	%p
-		= f.label :body
-		%br
-		= f.text_area :body
-
-	%p
 		= f.submit
-
-= link_to 'Back to the blog', user_blog_posts_path(@user, @blog, @post)

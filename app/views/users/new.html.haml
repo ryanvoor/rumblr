@@ -21,6 +21,11 @@
 		= f.password_field :password
 
 	%p
+		= f.label :color
+		%br
+		= f.color_field :color
+
+	%p
 		= f.submit
 
 = link_to 'nevermind', root_url
