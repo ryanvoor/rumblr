@@ -2,13 +2,13 @@
 	%h1.col-md-12 Change this blog's title
 
 = form_for :blog, url: user_blog_path(@user, @blog), method: :patch do |f|
-	- if @post.errors.any?
+	- if @blog.errors.any?
 		#error_explanation
 			%h2
-				= pluralize(@post.errors.count, "error")
-				prohibited this from being saved
+				= pluralize(@blog.errors.count, "error")
+					prohibited this from being saved
 			%ul
-				- @post.errors.full_messages.each do |msg|
+				- @blog.errors.full_messages.each do |msg|
 					%li= msg
 
 	%p
@@ -18,3 +18,5 @@
 
 	%p
 		= f.submit
+
+= link_to 'Nevermind', user_blog_path(@user, @blog)

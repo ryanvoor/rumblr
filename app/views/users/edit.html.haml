@@ -1,0 +1,26 @@
+%h1 Change your password/color
+
+= form_for :user, url: user_path(@user), method: :patch do |f|
+	- if @user.errors.any?
+		#error_explanation
+			%h2
+				= pluralize(@user.errors.count, "error")
+					prohibited this from being saved
+			%ul
+				- @user.errors.full_messages.each do |msg|
+					%li= msg
+
+	%p
+		= f.label :password
+		%br
+		= f.text_field :password
+
+	/ %p
+	/ 	=f.label :color
+	/ 	%br
+	/ 	= f.color_field :color
+
+	%p
+		= f.submit
+
+= link_to 'Nevermind', user_path(@user)

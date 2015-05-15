@@ -3,6 +3,7 @@
 	/ .user-page-delete-link= link_to 'Delete this account', method: :destroy
 	.user-logout-link= link_to 'Logout', logout_path, method: :delete
 	- if logged_in? && @user == current_user
+		.user-edit-link= link_to 'Change password', edit_user_path(@user)
 		.user-delete-link= link_to 'Delete my account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }
 	.user-link-to-users= link_to 'All users', users_path
 .row
