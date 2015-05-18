@@ -19,7 +19,7 @@
 			- if logged_in? && @user == current_user
 				.col-md-4
 					.row
-						%h4= link_to 'Delete this blog', user_blog_path(@user, blog), method: :delete, data: { confirm: "Are you sure? " }
+						%h4= link_to 'Delete', user_blog_path(@user, blog), method: :delete, data: { confirm: "Are you sure? " }
 					.row
 						%h4= link_to "Change title", edit_user_blog_path(@user, blog)
 - else
